@@ -15,7 +15,7 @@
 #include <sys/malloc.h>
 
 
-#define  SQUARE_FLOW_FIELD_SZ	400
+#define  SQUARE_FLOW_FIELD_SZ	1000
 #define	 DISCRETE_FILTER_SIZE	2048
 #define  LOWPASS_FILTR_LENGTH	40.00000f
 #define	 LINE_SQUARE_CLIP_MAX	100000.0f

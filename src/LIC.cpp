@@ -37,33 +37,33 @@
 //#include "stdafx.h"
 #include "LICHeader.h"
 
-unsigned char*	licMain()
-{
-    int				n_xres = SQUARE_FLOW_FIELD_SZ;
-    int				n_yres = SQUARE_FLOW_FIELD_SZ;
-    float*			pVectr = (float*         ) malloc( sizeof(float        ) * n_xres * n_yres * 2 );
-    float*			p_LUT0 = (float*		 ) malloc( sizeof(float        ) * DISCRETE_FILTER_SIZE);
-    float*			p_LUT1 = (float*		 ) malloc( sizeof(float        ) * DISCRETE_FILTER_SIZE);
-    unsigned char*	pNoise = (unsigned char* ) malloc( sizeof(unsigned char) * n_xres * n_yres     );
-    unsigned char*	pImage = (unsigned char* ) malloc( sizeof(unsigned char) * n_xres * n_yres     );
-    
-    
-    
-    SyntheszSaddle(n_xres, n_yres, pVectr);
-    NormalizVectrs(n_xres, n_yres, pVectr);
-    MakeWhiteNoise(n_xres, n_yres, pNoise);
-    GenBoxFiltrLUT(DISCRETE_FILTER_SIZE, p_LUT0, p_LUT1);
-    FlowImagingLIC(n_xres, n_yres, pVectr, pNoise, pImage, p_LUT0, p_LUT1, LOWPASS_FILTR_LENGTH);
-//    WriteImage2PPM(n_xres, n_yres, pImage, "LIC.jpg");
-    
-//    free(pVectr);	pVectr = NULL;
-//    free(p_LUT0);	p_LUT0 = NULL;
-//    free(p_LUT1);	p_LUT1 = NULL;
-//    free(pNoise);	pNoise = NULL;
-//    free(pImage);	pImage = NULL;
-    
-    return pImage;
-}
+//unsigned char*	licMain()
+//{
+//    int				n_xres = SQUARE_FLOW_FIELD_SZ;
+//    int				n_yres = SQUARE_FLOW_FIELD_SZ;
+//    float*			pVectr = (float*         ) malloc( sizeof(float        ) * n_xres * n_yres * 2 );
+//    float*			p_LUT0 = (float*		 ) malloc( sizeof(float        ) * DISCRETE_FILTER_SIZE);
+//    float*			p_LUT1 = (float*		 ) malloc( sizeof(float        ) * DISCRETE_FILTER_SIZE);
+//    unsigned char*	pNoise = (unsigned char* ) malloc( sizeof(unsigned char) * n_xres * n_yres     );
+//    unsigned char*	pImage = (unsigned char* ) malloc( sizeof(unsigned char) * n_xres * n_yres     );
+//    
+//    
+//    
+//    SyntheszSaddle(n_xres, n_yres, pVectr);
+//    NormalizVectrs(n_xres, n_yres, pVectr);
+//    MakeWhiteNoise(n_xres, n_yres, pNoise);
+//    GenBoxFiltrLUT(DISCRETE_FILTER_SIZE, p_LUT0, p_LUT1);
+//    FlowImagingLIC(n_xres, n_yres, pVectr, pNoise, pImage, p_LUT0, p_LUT1, LOWPASS_FILTR_LENGTH);
+////    WriteImage2PPM(n_xres, n_yres, pImage, "LIC.jpg");
+//    
+////    free(pVectr);	pVectr = NULL;
+////    free(p_LUT0);	p_LUT0 = NULL;
+////    free(p_LUT1);	p_LUT1 = NULL;
+////    free(pNoise);	pNoise = NULL;
+////    free(pImage);	pImage = NULL;
+//    
+//    return pImage;
+//}
 
 
 ///		synthesize a saddle-shaped vector field     ///
@@ -81,7 +81,7 @@ void	SyntheszSaddle(int  n_xres,  int  n_yres,  float*  pVectr)
         // float rad = atan((y_textCoord - 0.5)/(x_textCoord-0.5));
 
         pVectr[index    ] = y_textCoord - 0.5;
-        pVectr[index + 1] = x_textCoord-0.5;
+        pVectr[index + 1] = x_textCoord - 0.5;
         
     }
 }

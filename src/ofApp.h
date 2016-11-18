@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "VectorMap.cpp"
 
 class ofApp : public ofBaseApp{
 
@@ -21,13 +22,16 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
         void updateVectorField();
-    void MakePerlinNoise(int  n_xres,  int  n_yres,  unsigned char*  pNoise);
+        void MakePerlinNoise(int  n_xres,  int  n_yres,  unsigned char*  pNoise);
     ofImage imageToShow;
+    VectorMap* vectorMap;
+    ofShader myShader;
+    
     float*			pVectr;
     unsigned char*	pImage;
     unsigned char*	pNoise;
     unsigned char*	whiteNoise;
     float*			p_LUT0, *p_LUT1;
     int             n_xres,n_yres;
-    
+    bool showvecf;
 };
